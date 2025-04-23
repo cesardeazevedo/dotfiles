@@ -23,9 +23,24 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.re",
   callback = function()
     vim.bo.filetype = "reason"
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "reason",
+  callback = function()
+    vim.bo.commentstring = "// %s"
+  end,
+})
+
+-- https://github.com/neovim/neovim/issues/28830#issuecomment-2119690661
+local get_option = vim.filetype.get_option
+vim.filetype.get_option = function(filetype, option)
+  return option == "commentstring"
+      and require("ts_context_commentstring.internal").calculate_commentstring()
+      or get_option(filetype, option)
+end
