@@ -1,0 +1,21 @@
+# General
+.DS_Store
+
+# Session
+Session.vim
+Sessionx.vim
+
+### Zsh ###
+*.zwc
+*.zwc.old
+
+# Zsh completion-optimization dumpfile
+*zcompdump*
+.zsh_history
+.zsh_sessions
+.zcalc_history
+._zinit
+.zinit_lstupd
+zsdoc/data
+
+.venv
