@@ -1,0 +1,22 @@
+foreground = ffffff
+
+theme = Github Dark
+font-family = "Monaco"
+
+font-size = 20
+font-thicken
+
+cursor-style=block
+shell-integration-features=no-cursor
+window-save-state=always
+window-theme=auto
+unfocused-split-opacity=1
+unfocused-split-fill=ffffff
+confirm-close-surface=false
+
+macos-icon=custom-style
+mouse-scroll-multiplier=4
+
+bold-is-bright=true
+background-opacity=0.95
+background-blur-radius=20
