@@ -6,7 +6,15 @@ return {
     cmd = 'Neotree',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      {
+        'nvim-tree/nvim-web-devicons',
+        opts = {
+          override_by_extension = {
+            rei = { icon = "", color = "#dd4b39", name = "ReasonReact" },
+            re  = { icon = "", color = "#dd4b39", name = "Reason" },
+          },
+        },
+      }, -- not strictly required, but recommended
       'MunifTanjim/nui.nvim',
     },
     keys = {
@@ -30,7 +38,7 @@ return {
         desc = 'Explorer NeoTree (cwd)',
       },
       { '<leader>e', '<leader>fe', desc = 'Explorer NeoTree (Root Dir)', remap = true },
-      { '<leader>E', '<leader>fE', desc = 'Explorer NeoTree (cwd)', remap = true },
+      { '<leader>E', '<leader>fE', desc = 'Explorer NeoTree (cwd)',      remap = true },
       {
         '<leader>ge',
         function()
@@ -110,7 +118,7 @@ return {
         position = 'left',
       }
       vim.list_extend(opts.event_handlers, {
-        { event = events.FILE_MOVED, handler = on_move },
+        { event = events.FILE_MOVED,   handler = on_move },
         { event = events.FILE_RENAMED, handler = on_move },
       })
 
